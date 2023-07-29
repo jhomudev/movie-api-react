@@ -10,6 +10,7 @@ import Pager from './components/Pager'
 import usePager from './hooks/usePager'
 import { useParams } from './hooks/useParams'
 import TopBar from './components/TopBar'
+import bgImageMovie from './assets/img/user-hero-bg.jpg'
 
 function App () {
   const { search, updateSearch } = useSearch()
@@ -35,7 +36,6 @@ function App () {
   function handleSort (e) {
     const sortValue = e.target.value
     setSort(sortValue)
-    console.log(sortValue)
     getMovies({ search, page, limit, sort: sortValue, endYear, startYear })
   }
 
@@ -47,7 +47,7 @@ function App () {
         <div
           className='h-[380px] flex flex-col justify-center items-center'
           style={{
-            backgroundImage: 'url(/img/user-hero-bg.jpg)',
+            backgroundImage: `url(${bgImageMovie})`,
             backgroundRepeat: 'no-repeat'
           }}
         >
