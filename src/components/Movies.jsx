@@ -25,11 +25,11 @@ function MovieResultsGrid ({ movies }) {
 
 function MovieResultsList ({ movies }) {
   return (
-    <main className='grid gap-5'>
+    <main className='grid gap-10'>
       {
         movies.map((movie) => (
-          <article key={movie.id} className='group w-full flex gap-5 items-start text-c_white-blue text-sm'>
-            <div className='imgBox w-4/12 min-w-[170px] h-screen min-h-[260px] max-h-[290px]'>
+          <article key={movie.id} className='group w-full flex flex-col sm:flex-row gap-5 justify-center items-start text-c_white-blue text-sm'>
+            <div className='imgBox mx-auto w-4/12 min-w-[180px] h-full min-h-[260px] max-h-[290px]'>
               <img className='w-full h-full object-fill rounded-md' src={movie.img} alt={movie.caption} />
             </div>
             <div className='info flex flex-col gap-3'>
