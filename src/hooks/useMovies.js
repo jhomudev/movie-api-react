@@ -3,6 +3,7 @@ import { searchMovies } from '../services/movies'
 
 export function useMovies ({ search, changePage }) {
   const [movies, setMovies] = useState([])
+  const [view, changeView] = useState('list')
   const previousSearch = useRef(search)
   const previousPage = useRef('')
   const previousLimit = useRef('')
@@ -42,5 +43,5 @@ export function useMovies ({ search, changePage }) {
     }, []
   )
 
-  return { movies, getMovies, hasNextPage }
+  return { movies, view, changeView, getMovies, hasNextPage }
 }

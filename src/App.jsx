@@ -15,7 +15,7 @@ import bgImageMovie from './assets/img/user-hero-bg.jpg'
 function App () {
   const { search, updateSearch } = useSearch()
   const { page, changePage } = usePager()
-  const { movies, getMovies, hasNextPage } = useMovies({ search, changePage })
+  const { movies, view, changeView, getMovies, hasNextPage } = useMovies({ search, changePage })
   const { limit, setLimit, sort, setSort, endYear, setEndYear, setStartYear, startYear } = useParams()
 
   function handleSubmit (e) {
@@ -68,10 +68,8 @@ function App () {
         <br />
         <div className='container mx-auto p-5 flex gap-8 text-c_white-semidark font-light'>
           <section className='w-full grid gap-10'>
-            <TopBar handleSort={handleSort} limit={limit} />
-            <main className='main px-3 grid gap-6 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]'>
-              <Movies movies={movies} />
-            </main>
+            <TopBar handleSort={handleSort} limit={limit} view={view} changeView={changeView} />
+            <Movies movies={movies} view={view} />
             <Pager
               search={search} nowPage={page} getMovies={getMovies}
               params={{ setLimit, limit, page, sort, startYear, endYear }} hasNextPage={hasNextPage}

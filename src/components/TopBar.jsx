@@ -1,9 +1,13 @@
 import React from 'react'
 import { FaRegRectangleList, FaGripVertical } from 'react-icons/fa6'
 
-function TopBar ({ handleSort, limit }) {
+function TopBar ({ handleSort, limit, view, changeView }) {
+  function handleChangeView (newView) {
+    changeView(newView)
+  }
+
   return (
-    <div className='flex items-center flex-wrap-reverse gap-3 py-2 text-sm border-y-[1px] border-c_blue-gray'>
+    <div className='flex items-center flex-wrap-reverse gap-3 py-2 text-sm text-c_white-blue border-y-[1px] border-c_blue-gray'>
       <label>
         Encontrados: <span className='text-c_blue-light'>&nbsp;{limit}</span> películas en total
       </label>
@@ -15,8 +19,8 @@ function TopBar ({ handleSort, limit }) {
             <option className='text-c_blue-semidark' value='year.incr'>Año ascendente</option>
           </select>
         </div>
-        <div className='list px-3  cursor-pointer hover:text-c_yellow-lima'><FaRegRectangleList /></div>
-        <div className='grilla px-3  cursor-pointer hover:text-c_yellow-lima border-l-2 border-l-c_blue-gray '><FaGripVertical /></div>
+        <div onClick={() => { handleChangeView('list') }} className={`list px-3 cursor-pointer hover:text-c_yellow-lima ${view === 'list' ? 'text-c_yellow-lima' : ''}`}><FaRegRectangleList /></div>
+        <div onClick={() => { handleChangeView('grid') }} className={`grilla px-3 cursor-pointer hover:text-c_yellow-lima border-l-2 border-l-c_blue-gray ${view === 'grid' ? 'text-c_yellow-lima' : ''}`}><FaGripVertical /></div>
       </div>
     </div>
   )
