@@ -5,11 +5,11 @@ const IMG_DEFAULT = 'https://www.vinelanddriveintheater.com/assets/front/images/
 
 function MovieResultsGrid ({ movies }) {
   return (
-    <main className='main px-3 grid gap-6 grid-cols-[repeat(auto-fit,minmax(220px,1fr))]'>
+    <main className='main px-3 grid gap-6 grid-cols-[repeat(auto-fit,minmax(120px,1fr))]'>
       {
         movies.map((movie) => (
           <article key={movie.id} className='movie group w-full text-left flex flex-col gap-2 font-dosis'>
-            <div className='imgBox relative grid place-items-center w-full h-screen max-h-[25em] object-fill rounded-md overflow-hidden'>
+            <div className='imgBox relative grid place-items-center w-[min(100%,230px)] h-screen max-h-[14em] object-fill rounded-md overflow-hidden'>
               <img className='absolute w-full h-full group-hover:opacity-70 transition-all ease-in-out duration-700' src={movie.img ?? IMG_DEFAULT} alt={movie.caption} />
               <button className='opacity-0 group-hover:opacity-100 bg-c_red-normal p-2 rounded-full uppercase cursor-pointer z-10 transition-all ease-in-out duration-700 text-sm font-semibold flex gap-1 items-center'>Go to movie <FaCaretRight /></button>
             </div>
@@ -31,7 +31,7 @@ function MovieResultsList ({ movies }) {
       {
         movies.map((movie) => (
           <article key={movie.id} className='group w-full flex flex-col sm:flex-row gap-5 justify-center items-start text-c_white-blue text-sm'>
-            <picture className='imgBox mx-auto w-[min(100%,280px)] min-w-[200px] h-screen max-h-[26em] sm:max-h-[22em]'>
+            <picture className='imgBox mx-auto w-[min(100%,240px)] min-w-[200px] h-screen max-h-[24em] sm:max-h-[20em]'>
               <img className='w-full h-full object-fill rounded-md' src={movie.img ?? IMG_DEFAULT} alt={movie.caption} />
             </picture>
             <div className='info flex flex-col gap-3'>
