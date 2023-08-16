@@ -1,14 +1,16 @@
 import React from 'react'
 import { FaCaretRight, FaStar } from 'react-icons/fa6'
 
+const IMG_DEFAULT = 'https://www.vinelanddriveintheater.com/assets/front/images/comingSoon.jpg'
+
 function MovieResultsGrid ({ movies }) {
   return (
-    <main className='main px-3 grid gap-6 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]'>
+    <main className='main px-3 grid gap-6 grid-cols-[repeat(auto-fit,minmax(220px,1fr))]'>
       {
         movies.map((movie) => (
           <article key={movie.id} className='movie group w-full text-left flex flex-col gap-2 font-dosis'>
-            <div className='imgBox relative grid place-items-center w-full h-[80%] min-h-[19em] object-fill rounded-md overflow-hidden'>
-              <img className='absolute w-full h-full group-hover:opacity-70 transition-all ease-in-out duration-700' src={movie.img} alt={movie.caption} />
+            <div className='imgBox relative grid place-items-center w-full h-screen max-h-[25em] object-fill rounded-md overflow-hidden'>
+              <img className='absolute w-full h-full group-hover:opacity-70 transition-all ease-in-out duration-700' src={movie.img ?? IMG_DEFAULT} alt={movie.caption} />
               <button className='opacity-0 group-hover:opacity-100 bg-c_red-normal p-2 rounded-full uppercase cursor-pointer z-10 transition-all ease-in-out duration-700 text-sm font-semibold flex gap-1 items-center'>Go to movie <FaCaretRight /></button>
             </div>
             <strong className='text-sm font-semibold font-dosis group-hover:text-c_yellow-lima uppercase line-clamp-1'><a href=''>{movie.title}</a></strong>
@@ -29,9 +31,9 @@ function MovieResultsList ({ movies }) {
       {
         movies.map((movie) => (
           <article key={movie.id} className='group w-full flex flex-col sm:flex-row gap-5 justify-center items-start text-c_white-blue text-sm'>
-            <div className='imgBox mx-auto w-4/12 min-w-[180px] h-full min-h-[260px] max-h-[290px]'>
-              <img className='w-full h-full object-fill rounded-md' src={movie.img} alt={movie.caption} />
-            </div>
+            <picture className='imgBox mx-auto w-[min(100%,280px)] min-w-[200px] h-screen max-h-[26em] sm:max-h-[22em]'>
+              <img className='w-full h-full object-fill rounded-md' src={movie.img ?? IMG_DEFAULT} alt={movie.caption} />
+            </picture>
             <div className='info flex flex-col gap-3'>
               <div className='top-part grid gap-1'>
                 <strong className='font-dosis text-base text-c_white-blue font-semibold uppercase line-clamp-1'><a className='text-c_white-normal group-hover:text-c_yellow-lima' href=''>{movie.title}</a> ({movie.year})</strong>
