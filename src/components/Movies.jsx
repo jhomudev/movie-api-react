@@ -5,11 +5,11 @@ const IMG_DEFAULT = 'https://www.vinelanddriveintheater.com/assets/front/images/
 
 function MovieResultsGrid ({ movies }) {
   return (
-    <main className='main px-3 grid gap-6 grid-cols-[repeat(auto-fit,minmax(150px,1fr))]'>
+    <main className='main px-3 grid gap-6 grid-cols-[repeat(auto-fit,minmax(220px,1fr))]'>
       {
         movies.map((movie) => (
-          <article key={movie.id} className='movie group w-full text-left flex flex-col items-center sm:items-start gap-2 font-dosis'>
-            <div className='imgBox relative grid place-items-center w-[min(100%,170px)] h-screen max-h-[260px] object-fill rounded-md overflow-hidden'>
+          <article key={movie.id} className='movie group w-full text-left flex flex-col gap-2 font-dosis'>
+            <div className='imgBox relative grid place-items-center w-full h-screen max-h-[25em] object-fill rounded-md overflow-hidden'>
               <img className='absolute w-full h-full group-hover:opacity-70 transition-all ease-in-out duration-700' src={movie.img ?? IMG_DEFAULT} alt={movie.caption} />
               <button className='opacity-0 group-hover:opacity-100 bg-c_red-normal p-2 rounded-full uppercase cursor-pointer z-10 transition-all ease-in-out duration-700 text-sm font-semibold flex gap-1 items-center'>Go to movie <FaCaretRight /></button>
             </div>
