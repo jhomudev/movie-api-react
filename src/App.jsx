@@ -1,4 +1,3 @@
-import './App.css'
 import { useEffect } from 'react'
 import { useMovies } from './hooks/useMovies'
 import { useSearch } from './hooks/useSearch'
