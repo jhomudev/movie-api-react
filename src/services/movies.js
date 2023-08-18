@@ -34,7 +34,7 @@ export async function searchMovies ({ keyword, page, sort, limit, startYear, end
 
     const results = data.results
 
-    const hasNext = Boolean(data.next)
+    const hasNext = !!data.next
 
     const moviesFound = results?.map((result) => ({
       id: result.id,
