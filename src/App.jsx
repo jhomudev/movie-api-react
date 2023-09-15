@@ -42,7 +42,7 @@ function App () {
           <header className='font-dosis uppercase font-semibold w-full py-10 px-2 grid gap-3 place-items-center'>
             <div className='header-content container mx-auto flex gap-3 items-center justify-center'>
               <img className='w-10' src='logo.svg' alt='logo devmc' />
-              <h1 className='text-3xl'>Movie Finderrrr</h1>
+              <h1 className='text-3xl'>Movie Finder</h1>
             </div>
             <p className='font-normal'>Busca tus películas</p>
           </header>
